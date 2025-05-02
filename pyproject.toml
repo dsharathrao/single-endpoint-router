@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "SingleEndpointGateway"
-version = "0.0.1"
+version = "0.0.2"
 description = "A simple single‑endpoint FastAPI gateway with caching"
 readme = "README.md"
 authors = ["Sharath Kumar <dsharathrao@gmail.com>"]

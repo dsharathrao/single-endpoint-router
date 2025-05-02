@@ -26,7 +26,7 @@ pip install singleendpointgateway
 Or install from a local wheel:
 
 ```bash
-pip install SingleEndpointGateway-0.1.0-py3-none-any.whl
+pip install SingleEndpointGateway-0.0.2-py3-none-any.whl
 ```
 
 ---
@@ -195,5 +195,5 @@ MIT
 
 ## Project Links
 
-- [GitHub Repository](https://github.com/your-org/SingleEndpointGateway)
+- [GitHub Repository](https://github.com/dsharathrao/SingleEndpointGateway)
 - [PyPI Project](https://pypi.org/project/singleendpointgateway/)
