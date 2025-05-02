@@ -1,0 +1,55 @@
+"http://127.0.0.1:3000":
+  cache_timeout: 6000
+  endpoints: 
+    "/get_log_files":
+      payload:
+        - name: "log_file.log"
+          path: "c:/logs"
+        - name: "backup_log.log"
+          path: "d:/backup/logs"
+    "/load_log_file":
+      payload:
+        - name: "log_file.log"
+          path: "c:/logs"
+    "/delete_log_file":
+      payload:
+        - name: "old_log.log"
+          path: "c:/logs/old"
+    "/list_log_files":
+      payload:
+        - directory: "c:/logs"
+          include_subdirs: true
+
+"http://127.0.0.1:3100":
+  cache_timeout: 5000
+  endpoints:
+    "/archive_logs":
+      payload:
+        - source: "c:/logs"
+          destination: "e:/archives"
+          compress: true
+    "/get_archive":
+      payload:
+        - archive_name: "logs_2025_04.zip"
+          destination_path: "d:/downloads"
+    "/verify_log":
+      payload:
+        - file: "log_file.log"
+          checksum: "abc123xyz"
+
+"http://127.0.0.1:3200":
+  cache_timeout: 7000
+  endpoints:
+    "/delete_logs":
+      payload:
+        - directory: "c:/logs/old"
+          pattern: "*.log"
+          dry_run: false
+    "/purge_temp":
+      payload:
+        - temp_dir: "c:/temp"
+          age_days: 30
+    "/log_summary":
+      payload:
+        - summary_type: "daily"
+          date: "2025-05-01"
