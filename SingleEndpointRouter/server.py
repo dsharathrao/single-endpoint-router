@@ -16,11 +16,11 @@ __all__: list[str] = ["Server"]
 
 class Server:
     """
-    Single‑endpoint gateway.
+    Single‑endpoint Router.
 
     Examples
     --------
-    >>> from SingleEndpointGateway import Server
+    >>> from SingleEndpointRouter import Server
     >>> endpoints = ["http://10.0.0.1:3000", "http://10.0.0.2:3100"]
     >>> app = Server(endpoints, "config.yaml")
     >>> app.run(debug=True, host="0.0.0.0", port=8000)
@@ -66,7 +66,7 @@ class Server:
     # ------------------------------ public api ------------------------------ #
     def run(self, *, debug: bool = True, host: str = "127.0.0.1", port: int = 8000):
         """
-        Start the gateway using uvicorn.
+        Start the router using uvicorn.
 
         Parameters
         ----------

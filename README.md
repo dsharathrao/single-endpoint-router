@@ -1,6 +1,6 @@
-# SingleEndpointGateway
+# SingleEndpointRouter
 
-**SingleEndpointGateway** is a lightweight, FastAPI-based reverse proxy and gateway that forwards each incoming request to the first backend server that responds with **200 OK**. It supports advanced routing based on endpoint paths and request payloads, and remembers successful routes in a SQLite cache for fast subsequent lookups.
+**SingleEndpointRouter** is a lightweight, FastAPI-based reverse proxy and router that forwards each incoming request to the first backend server that responds with **200 OK**. It supports advanced routing based on endpoint paths and request payloads, and remembers successful routes in a SQLite cache for fast subsequent lookups.
 
 ---
 
@@ -20,13 +20,13 @@
 Install from PyPI (after publishing):
 
 ```bash
-pip install singleendpointgateway
+pip install SingleEndpointRouter
 ```
 
 Or install from a local wheel:
 
 ```bash
-pip install SingleEndpointGateway-0.0.2-py3-none-any.whl
+pip install SingleEndpointRouter-0.0.2-py3-none-any.whl
 ```
 
 ---
@@ -62,10 +62,10 @@ Example:
           compress: true
 ```
 
-### 2. Start the Gateway
+### 2. Start the router
 
 ```python
-from SingleEndpointGateway import Server
+from SingleEndpointRouter import Server
 
 # Option 1: Use only the config file
 app = Server("config.yaml")
@@ -92,10 +92,10 @@ Console output:
 ## How It Works
 
 1. **Routing by Path and Payload**:  
-   When a request is received, the gateway checks the YAML config for a matching backend server based on the request path and payload (for POST/PUT/PATCH). If a match is found, the request is forwarded to that server.
+   When a request is received, the router checks the YAML config for a matching backend server based on the request path and payload (for POST/PUT/PATCH). If a match is found, the request is forwarded to that server.
 
 2. **Fallback and Caching**:  
-   If no match is found, the gateway checks its cache for a previously successful backend for this method/path/payload combination. If still not found, it tries all configured endpoints in order until one responds with 200 OK, then caches that choice.
+   If no match is found, the router checks its cache for a previously successful backend for this method/path/payload combination. If still not found, it tries all configured endpoints in order until one responds with 200 OK, then caches that choice.
 
 3. **Payload Matching**:  
    For endpoints with a `payload` list, the request payload must match one of the payload dictionaries exactly (all keys and values must match).
@@ -130,7 +130,7 @@ Example:
 **Routing logic:**
 
 - If a request matches both the endpoint path and one of the payloads, it is routed to that server.
-- If no payload matches, the gateway tries all servers in order as fallback.
+- If no payload matches, the router tries all servers in order as fallback.
 
 ---
 
@@ -181,9 +181,9 @@ will be routed to `http://127.0.0.1:3100/get_log_files`.
 
 ## Advanced Usage
 
-- **Fallback**: If no config match is found, the gateway tries all endpoints in order.
+- **Fallback**: If no config match is found, the router tries all endpoints in order.
 - **Caching**: Once a backend is found for a method/path/payload, it is cached for future requests.
-- **Stateless**: The gateway does not modify request or response bodies.
+- **Stateless**: The router does not modify request or response bodies.
 
 ---
 
@@ -195,5 +195,5 @@ MIT
 
 ## Project Links
 
-- [GitHub Repository](https://github.com/dsharathrao/SingleEndpointGateway)
-- [PyPI Project](https://pypi.org/project/singleendpointgateway/)
+- [GitHub Repository](https://github.com/dsharathrao/SingleEndpointRouter)
+- [PyPI Project](https://pypi.org/project/SingleEndpointRouter/)

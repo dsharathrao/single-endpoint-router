@@ -1,4 +1,4 @@
-from SingleEndpointGateway import Server
+from SingleEndpointRouter import Server
 
 endpoints = [
     "http://10.156.22.177:3000",
