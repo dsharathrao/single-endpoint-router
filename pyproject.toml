@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "single-endpoint-router"
-version = "0.0.3"
+version = "0.0.4"
 description = "A simple single-endpoint router for all provided APIs with caching"
 readme = "README.md"
 authors = ["Sharath Kumar <dsharathrao@gmail.com>"]
@@ -24,7 +24,7 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/dsharathrao/SingleEndpointRouter/issues"
+"Bug Tracker" = "https://github.com/dsharathrao/single-endpoint-router/issues"
 
 [tool.poetry.dependencies]
 python = ">=3.8"

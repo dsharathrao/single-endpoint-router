@@ -189,5 +189,5 @@ MIT
 
 ## Project Links
 
-- [GitHub Repository](https://github.com/dsharathrao/SingleEndpointRouter)
-- [PyPI Project](https://pypi.org/project/SingleEndpointRouter/)
+- [GitHub Repository](https://github.com/dsharathrao/single-endpoint-router)
+- [PyPI Project](https://pypi.org/project/single-endpoint-router/)
