@@ -17,16 +17,10 @@
 
 ## Installation
 
-Install from PyPI (after publishing):
+Install from PyPI:
 
 ```bash
-pip install SingleEndpointRouter
-```
-
-Or install from a local wheel:
-
-```bash
-pip install SingleEndpointRouter-0.0.2-py3-none-any.whl
+pip install single-endpoint-router
 ```
 
 ---
