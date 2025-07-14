@@ -141,6 +141,30 @@ Example:
 
 - `run(debug=True, host="127.0.0.1", port=8000)`  
   Starts the FastAPI/Uvicorn server.
+- `clean_cache()`  
+  Removes all cached routing data from the SQLite cache.
+
+---
+
+## Example: Cleaning the Cache
+
+You can clear all cached routing decisions before starting the server:
+
+```python
+from SingleEndpointRouter import Server
+
+endpoints = [
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3100",
+    "http://127.0.0.1:3200",
+]
+app = Server(endpoints, "config.yaml")
+
+# Clean the cache
+app.clean_cache()
+
+app.run(debug=True, host="0.0.0.0", port=8000)
+```
 
 ---
 

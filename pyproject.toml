@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "single-endpoint-router"
-version = "0.0.4"
+version = "1.0.0"
 description = "A simple single-endpoint router for all provided APIs with caching"
 readme = "README.md"
 authors = ["Sharath Kumar <dsharathrao@gmail.com>"]

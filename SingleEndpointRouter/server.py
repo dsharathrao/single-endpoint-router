@@ -47,7 +47,7 @@ class Server:
         self._read_config(self._conf_path)
 
         # ------------ sqlite cache -------------- #
-        self._db_path = os.path.join(os.path.dirname(__file__), "cache.db")
+        self._db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache.db")
         self._conn = sqlite3.connect(self._db_path, check_same_thread=False)
         self._cursor = self._conn.cursor()
         self._cursor.execute(
@@ -83,6 +83,13 @@ class Server:
             log_level="debug" if debug else "warning",
             #  reload=debug,  # removed: requires import string
         )
+
+    def clean_cache(self):
+        """
+        Remove all cached endpoint data from the sqlite cache.
+        """
+        self._cursor.execute("DELETE FROM endpoint_cache")
+        self._conn.commit()
 
     # --------------------------- internal helpers --------------------------- #
     def _read_config(self, path: str):
