@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import sqlite3
+import sys
 from typing import Iterable, Sequence
 
 import httpx
@@ -47,7 +48,9 @@ class Server:
         self._read_config(self._conf_path)
 
         # ------------ sqlite cache -------------- #
-        self._db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache.db")
+        caller_path = os.path.abspath(sys.argv[0])
+        self._db_path = os.path.join(os.path.dirname(caller_path), "cache.db")
+        # self._db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache.db")
         self._conn = sqlite3.connect(self._db_path, check_same_thread=False)
         self._cursor = self._conn.cursor()
         self._cursor.execute(
